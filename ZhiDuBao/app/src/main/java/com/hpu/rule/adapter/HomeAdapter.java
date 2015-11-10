@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,7 +37,6 @@ public class HomeAdapter extends ArrayAdapter<Home> {
 
             viewHolder.homeImage=(ImageView)view.findViewById(R.id.home_image_left);
             viewHolder.homeText=(TextView)view.findViewById(R.id.home_textView);
-            viewHolder.homeButton=(Button)view.findViewById(R.id.home_button);
             view.setTag(viewHolder);
         }else {
             view=convertView;
@@ -46,9 +44,7 @@ public class HomeAdapter extends ArrayAdapter<Home> {
         }
         viewHolder.homeImage.setImageResource(home.getImageId());
         viewHolder.homeText.setText(home.getName());
-        viewHolder.homeButton.setTag(position);
         //给Button添加单击事件
-        viewHolder.homeButton.setOnClickListener(myListener);
         return view;
     }
 
@@ -67,6 +63,5 @@ public class HomeAdapter extends ArrayAdapter<Home> {
     class ViewHolder{
         ImageView homeImage;
         TextView homeText;
-        Button homeButton;
     }
 }

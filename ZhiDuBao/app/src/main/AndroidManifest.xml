@@ -40,7 +40,6 @@
         </activity>
         <activity android:name=".ActSendFeedback"></activity>
        <activity android:name=".bease.BaseActivity"></activity>
-        <activity android:name=".view.MyViewPagerActivity"></activity>
         <service
             android:name="cn.bmob.push.lib.service.PushService"
             android:exported="true"

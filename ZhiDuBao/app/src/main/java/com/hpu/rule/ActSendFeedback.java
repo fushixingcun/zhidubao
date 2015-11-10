@@ -1,26 +1,21 @@
 package com.hpu.rule;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.hpu.rule.bease.BaseActivity;
 import com.hpu.rule.bease.Feedback;
 
-import cn.bmob.push.BmobPush;
-import cn.bmob.v3.BmobInstallation;
-import cn.bmob.v3.BmobPushManager;
-import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.SaveListener;
 
 /**用于用户的反馈
  * Created by hjs on 2015/11/8.
  */
-public class ActSendFeedback extends MainActivity implements View.OnClickListener {
+public class ActSendFeedback extends BaseActivity implements View.OnClickListener {
     private EditText information_edt;
     private EditText content_edt;
     static String msg1;

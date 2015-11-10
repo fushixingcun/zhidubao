@@ -1,34 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--主页的listview 的 显示界面-->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><!--主页的listview 的 显示界面-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:orientation="horizontal"
-    android:gravity="center">
+    android:layout_height="80dp">
+
     <ImageView
         android:id="@+id/home_image_left"
         android:layout_width="50dp"
         android:layout_height="65dp"
-        android:layout_margin="5dp" />
+        android:layout_margin="5dp"
+        android:paddingLeft="10dp" />
 
     <TextView
         android:id="@+id/home_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:layout_marginLeft="40dp"
         android:gravity="center_horizontal"
         android:textColor="#18B4ED"
         android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/home_button"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="45dp"
-        android:background="#18B4ED"
-        android:gravity="center"
-        android:text="查看"
-        android:textColor="#FFFFFF" />
-</LinearLayout>
+</RelativeLayout>
