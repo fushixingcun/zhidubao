@@ -6,35 +6,43 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
     <!--主页的viewPager-->
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
+    <RelativeLayout
+        android:id="@+id/main_relative"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginLeft="1dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.45" />
+        android:layout_weight="0.45">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
     <!--view用于占位-->
     <View
         android:id="@+id/view_top"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.02"
-        android:background="#D7D7D2" />
-
+        android:background="#D7D7D2"/>
     <ListView
         android:id="@+id/main_listView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_weight="0.51"
+        android:background="#FFFFFF"
+        android:footerDividersEnabled="false"
         android:divider="@color/devide_color"
         android:dividerHeight="12dp"
-        android:footerDividersEnabled="false"
-        android:scrollbars="none" />
-
+        android:layout_weight="0.51">
+    </ListView>
     <View
         android:id="@+id/view_bottom"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.02"
-        android:background="#D7D7D2" />
+        android:background="#D7D7D2"/>
 </LinearLayout>

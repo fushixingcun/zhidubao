@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
-
+/*
+用于实现引导界面
+ */
 public class Gui extends Activity {
 
     @Override

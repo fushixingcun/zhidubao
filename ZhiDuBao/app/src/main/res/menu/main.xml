@@ -2,15 +2,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <!--用于actionbar的显示-->
+    <!--用于搜索-->
+    <!--<item-->
+    <!--android:id="@+id/action_search"-->
+    <!--android:icon="@drawable/ic_action_search"-->
+    <!--android:title="@string/search"-->
+    <!--android:actionViewClass="android.widget.SearchView"-->
+    <!--app:showAsAction="always|collapseActionView"/>-->
+
+
+    <!--&lt;!&ndash;用于设置&ndash;&gt;-->
+    <!--<item-->
+    <!--android:id="@+id/action_setting"-->
+    <!--app:showAsAction="never"-->
+    <!--android:title="@string/setting"/>-->
     <!--用于更新-->
-    <item
-        android:id="@+id/update"
+    <item android:id="@+id/update"
         android:title="@string/update"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom"
+        android:icon="@mipmap/update"/>
     <!--用于反馈-->
-    <item
-        android:id="@+id/contact"
-        android:orderInCategory="2"
+    <item android:id="@+id/contact"
         android:title="@string/contact"
-        app:showAsAction="always" />
+        app:showAsAction="never"
+        android:icon="@mipmap/contact"/>
 </menu>

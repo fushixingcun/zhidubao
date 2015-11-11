@@ -56,18 +56,6 @@ public class ActSendFeedback extends BaseActivity implements View.OnClickListene
             }
         }
     }
-
-    //    /*
-//    发送信息给开发者
-//     */
-//    private void sendMessage(String msg1,String msg2){
-//        BmobPushManager bmobPushManager=new BmobPushManager(this);
-//        BmobQuery<BmobInstallation> query=BmobInstallation.getQuery();
-//        query.addWhereEqualTo("isDeveloper",true);
-//        bmobPushManager.setQuery(query);
-//        String message=msg1+msg2;
-//        bmobPushManager.pushMessage(message);
-//    }
     /*
     反馈信息发送给服务器
      */
