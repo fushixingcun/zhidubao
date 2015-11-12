@@ -7,13 +7,8 @@ import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -23,8 +18,6 @@ import com.hpu.rule.adapter.MyPagerAdapter;
 import com.hpu.rule.bease.BaseActivity;
 import com.hpu.rule.view.Home;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,8 +25,13 @@ public class MainActivity extends BaseActivity{
     private ActionBar actionBar;
     //主页的ListView
     private ListView listView;
+   // private List<View> views;
     //viewpager
     private ViewPager mPager;
+    //设置viewpager的小点
+    //private ImageView[] dots;
+    //定义小白点的id
+    //private int[] ids={R.id.iv1,R.id.iv2,R.id.iv3,R.id.iv4,R.id.iv5};
     //设置滑动的最大值
     int position=50000;
     //判断用户是否触摸
@@ -56,19 +54,17 @@ public class MainActivity extends BaseActivity{
         //actionBar = getSupportActionBar();
         //让actionbar的返回按钮显示出来
         //getActionBar().setDisplayHomeAsUpEnabled(true);
-        //让Overflow永远显示在右边，不会因为有物理的menu键，而消失
-        setOverflowShowingAlways();
         //得到viewpager的实例
         mPager=(ViewPager)findViewById(R.id.viewPager);
+        //初始化小白点
+       // initDots();
         //定义一个list，用于viewpager图片的显示
         List<Integer> list=new ArrayList<Integer>();
         list.add(R.mipmap.ligong_nihao);
-        list.add(R.mipmap.yingshicheng);
-        list.add(R.mipmap.yuntaisan);
-        list.add(R.mipmap.qingtianhe);
-        list.add(R.mipmap.xinyuehu);
-        list.add(R.mipmap.xiaoyuan);
-        list.add(R.mipmap.tushuguan);
+        list.add(R.mipmap.hpu1);
+        list.add(R.mipmap.water);
+        list.add(R.mipmap.hpu3);
+        list.add(R.mipmap.hpu2);
         //得到pageradapter的实例
         MyPagerAdapter myPagerAdapter=new MyPagerAdapter(MainActivity.this,list);
         //设置adapter
@@ -99,7 +95,14 @@ public class MainActivity extends BaseActivity{
 
             @Override
             public void onPageSelected(int mPosition) {
-                position = mPosition;
+               position = mPosition;
+//                for (int i=0;i<ids.length;i++){
+//                    if (mPosition==i){
+//                        dots[i].setImageResource(R.mipmap.blue);
+//                    }else {
+//                        dots[i].setImageResource(R.mipmap.white);
+//                    }
+//                }
             }
 
             @Override
@@ -137,10 +140,37 @@ public class MainActivity extends BaseActivity{
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Home home=homeList.get(position);
+                //跳转到不同的activity
+                Intent itemIntent=new Intent();
+                switch (position){
+                    case 0:
+                        itemIntent.setClass(getApplicationContext(), SchoolRule.class);
+                        MainActivity.this.startActivity(itemIntent);
+                        break;
+                    case 1:
+                        itemIntent.setClass(getApplicationContext(),HeadMaster.class);
+                        MainActivity.this.startActivity(itemIntent);
+                        break;
+                    case 2:
+                        itemIntent.setClass(getApplicationContext(), SchoolHistory.class);
+                        MainActivity.this.startActivity(itemIntent);
+                        break;
+                    case 3:
+                    itemIntent.setClass(getApplicationContext(),SchoolHistory.class);
+                        MainActivity.this.startActivity(itemIntent);
+                    break;
+                }
+
             }
         });
     }
+    //初始化小白点
+//    private void initDots() {
+//        dots=new ImageView[views.size()];
+//        for (int i=0;i<views.size();i++){
+//            dots[i]=(ImageView)findViewById(ids[i]);
+//        }
+//    }
 
     //向listV添加数据
     private void initHome() {
@@ -152,67 +182,6 @@ public class MainActivity extends BaseActivity{
         homeList.add(school_history);
         Home school_master=new Home("我的收藏",R.mipmap.my_favorite);
         homeList.add(school_master);
-    }
-    //由于手机的不同，ActionBar最右边的overflow按钮有时候显示，有时候不显示，解决办法
-    private void setOverflowShowingAlways(){
-        try {
-            ViewConfiguration configuration=ViewConfiguration.get(this);
-            Field menuKeyField=ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
-            menuKeyField.setAccessible(true);
-            menuKeyField.setBoolean(configuration,false);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    //让overflow中的选项显示图标
-    @Override
-    public boolean onMenuOpened(int featureId, Menu menu) {
-        if (featureId == Window.FEATURE_ACTION_BAR && menu != null) {
-            if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
-                try {
-                    Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
-                    m.setAccessible(true);
-                    m.invoke(menu, true);
-                } catch (Exception e) {
-                }
-            }
-        }
-        return super.onMenuOpened(featureId, menu);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater=getMenuInflater();
-        menuInflater.inflate(R.menu.main, menu);
-        //对actionbar的search进行设置
-//        MenuItem searchItem=menu.findItem(R.id.action_search);
-//        SearchView searchView=(SearchView)searchItem.getActionView();
-        return super.onCreateOptionsMenu(menu);
-    }
-    //设置一个可以分享image的应用
-//    private Intent getDefaultIntent(){
-//     Intent intent=new Intent(Intent.ACTION_SEND);
-//        intent.setType("image/*");
-//        return  intent;
-//    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-//            case R.id.action_search:
-//                break;
-//            case R.id.action_setting:
-//                break;
-            case R.id.update:
-                break;
-            case R.id.contact:
-                Intent contact_intent=new Intent(MainActivity.this,ActSendFeedback.class);
-                startActivity(contact_intent);
-                break;
-            case android.R.id.home:
-                finish();
-                return  true;
-        }
-        return super.onOptionsItemSelected(item);
     }
     private long exitTime = 0;
     //再按一次退出

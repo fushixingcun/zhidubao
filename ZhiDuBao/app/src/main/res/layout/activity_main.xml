@@ -9,8 +9,6 @@
     <RelativeLayout
         android:id="@+id/main_relative"
         android:layout_marginTop="3dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginLeft="1dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.45">
@@ -18,6 +16,45 @@
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+        <LinearLayout
+            android:id="@+id/main_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/iv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/white"
+                android:layout_marginLeft="3dp"/>
+            <ImageView
+                android:id="@+id/iv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/blue"
+                android:layout_marginLeft="3dp"/>
+
+            <ImageView
+                android:id="@+id/iv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/white"
+                android:layout_marginLeft="3dp"/>
+            <ImageView
+                android:id="@+id/iv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/white"
+                android:layout_marginLeft="3dp"/>
+            <ImageView
+                android:id="@+id/iv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/white"
+                android:layout_marginLeft="3dp"/>
+        </LinearLayout>
     </RelativeLayout>
 
     <!--view用于占位-->

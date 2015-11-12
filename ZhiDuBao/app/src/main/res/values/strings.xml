@@ -7,7 +7,15 @@
     <string name="share">分享</string>
     <string name="update">检查更新</string>
 
-    <string name="sendfeedBack_textView">"  为了把制度宝做的更好您可以加入我们的qq群(243049400)或者关注我们的新浪微博，您也可以在此直接提出您的宝贵意见。"</string>
+    <string name="sendfeedBack_textView">"   为了把制度宝做的更好您可以加入我们的qq群(243049400)或者关注我们的新浪微博，您也可以在此直接提出您的宝贵意见。"</string>
     <string name="contact">联系我们</string>
     <string name="action_share">action_share</string>
+    <string name="headmaster_text_title">新生寄语</string>
+    <string name="headmaster_text_content1">亲爱的新同学：</string>
+    <string name="headmaster_text_content2">"\t\t你们好！首先，对你们以优异成绩考入河南理工大学表示热忱的祝贺和欢迎！"</string>
+    <string name="headmaster_text_content3">\t\t这里是你们人生道路新的起点，也是你们成长成才的沃土，实践将证明你们报考河南理工大学是正确的选择。河南理工大学创办于1909年，在一个世纪的办学历程中，形成了以“大爱”精神为导向、“明德任责”校训、“好学力行”校风等核心价值理念为支撑的学校历史文化传统，为国家培养了近16万余名高级专门人才。特别是近一个时期以来，学校认真贯彻“坚持科学发展观，全面提升内涵，加快学校发展”的战略思想，先后获得博士授权单位和一级学科博士点，拥有国家重点实验室培育基地、国家实验教学示范中心、教育部工程研究中心、教育部长江学者创新团队和国家测绘局重点实验室等一批高水平创新平台，科技创新能力显著提升，教育教学质量稳步提高，办学规模、办学水平和办学层次实现了历史性跨跃，在教育部本科教学工作水平评估中获得优秀评价，成为河南省重点建设的骨干高校，国家中西部高校振兴计划高校。学校历史积淀深厚，师资队伍水平较高，学习生活设施完备，文化生活丰富多彩，校园环境优美宜人，是青年学子向往的殿堂。你们的到来，必将为学校注入新的生机与活力，学校愿意为你们的成长和发展竭尽所能。</string>
+    <string name="headmaster_text_content4">\t\t祝愿你们在河南理工大学快乐学习、生活、成长！</string>
+    <string name="headmaster_text_content6"><a href="http://baike.baidu.com/link?url=QVOkE7rXB7DWYPfDhNBTvxmHzguGlXFXVErFi3jpBOFnU3LRJQ3y8np4yaFhmT38xbQyZW0iyV2Dw_gvQNIPgq">校党委书记：邹友峰</a></string>
+    <string name="headmaster_text_content7">校 长：杨小林</string>
+    <string name="headmaster_text_content8">二○一五年九月</string>
 </resources>
