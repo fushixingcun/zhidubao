@@ -8,14 +8,16 @@
     <!--主页的viewPager-->
     <RelativeLayout
         android:id="@+id/main_relative"
-        android:layout_marginTop="3dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="3dp"
         android:layout_weight="0.45">
+
         <android.support.v4.view.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
+
         <LinearLayout
             android:id="@+id/main_linear"
             android:layout_width="match_parent"
@@ -23,37 +25,41 @@
             android:layout_alignParentBottom="true"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
+
             <ImageView
                 android:id="@+id/iv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/white"
-                android:layout_marginLeft="3dp"/>
+                android:layout_marginLeft="3dp"
+                android:src="@mipmap/white" />
+
             <ImageView
                 android:id="@+id/iv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/blue"
-                android:layout_marginLeft="3dp"/>
+                android:layout_marginLeft="3dp"
+                android:src="@mipmap/blue" />
 
             <ImageView
                 android:id="@+id/iv3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/white"
-                android:layout_marginLeft="3dp"/>
+                android:layout_marginLeft="3dp"
+                android:src="@mipmap/white" />
+
             <ImageView
                 android:id="@+id/iv4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/white"
-                android:layout_marginLeft="3dp"/>
+                android:layout_marginLeft="3dp"
+                android:src="@mipmap/white" />
+
             <ImageView
                 android:id="@+id/iv5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/white"
-                android:layout_marginLeft="3dp"/>
+                android:layout_marginLeft="3dp"
+                android:src="@mipmap/white" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -63,23 +69,25 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.02"
-        android:background="#D7D7D2"/>
+        android:background="#D7D7D2" />
+
     <ListView
         android:id="@+id/main_listView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_weight="0.51"
         android:background="#FFFFFF"
-        android:footerDividersEnabled="false"
         android:divider="@color/devide_color"
         android:dividerHeight="12dp"
-        android:layout_weight="0.51">
-    </ListView>
+        android:footerDividersEnabled="false"
+        android:scrollbars="none" />
+
     <View
         android:id="@+id/view_bottom"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.02"
-        android:background="#D7D7D2"/>
+        android:background="#D7D7D2" />
 </LinearLayout>

@@ -17,13 +17,15 @@
     <!--app:showAsAction="never"-->
     <!--android:title="@string/setting"/>-->
     <!--用于更新-->
-    <item android:id="@+id/update"
+    <item
+        android:id="@+id/update"
+        android:icon="@mipmap/update"
         android:title="@string/update"
-        app:showAsAction="ifRoom"
-        android:icon="@mipmap/update"/>
+        app:showAsAction="ifRoom" />
     <!--用于反馈-->
-    <item android:id="@+id/contact"
+    <item
+        android:id="@+id/contact"
+        android:icon="@mipmap/contact"
         android:title="@string/contact"
-        app:showAsAction="never"
-        android:icon="@mipmap/contact"/>
+        app:showAsAction="never" />
 </menu>
