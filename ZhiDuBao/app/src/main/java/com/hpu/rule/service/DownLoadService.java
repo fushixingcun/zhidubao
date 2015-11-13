@@ -30,7 +30,6 @@ import java.net.URL;
 public class DownLoadService extends Service {
     private NotificationManager manager = null;
     private NotificationCompat.Builder builder;
-    private String url;
     private DownloadImageTask downloadTask;
     public File file;
 
@@ -48,7 +47,7 @@ public class DownLoadService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        url = intent.getStringExtra("url");
+        String url = intent.getStringExtra("url");
         if (downloadTask != null && !downloadTask.isCancelled()) {
             Toast.makeText(getApplicationContext(), "正在下载中！", Toast.LENGTH_SHORT).show();
             return startId;
@@ -175,5 +174,11 @@ public class DownLoadService extends Service {
     private String getFileName(String path) {
         int start = path.lastIndexOf("/") + 1;
         return path.substring(start);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        downloadTask.cancel(true);
     }
 }
