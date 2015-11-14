@@ -63,9 +63,9 @@ public class DownLoadService extends Service {
             builder = new NotificationCompat.Builder(getApplicationContext());
             builder.setSmallIcon(R.mipmap.ic_launcher);
             builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
-            builder.setContentTitle("美女图片");
+            builder.setContentTitle("z");
             builder.setProgress(100, 0, false);
-            builder.setTicker("开始下载!");
+            builder.setTicker("下载中...");
             manager.notify(1, builder.build());
         }
 

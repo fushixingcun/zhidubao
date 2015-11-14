@@ -21,7 +21,6 @@ public class Gui extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActionBar().hide();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.gui);
         guiText=(TextView)findViewById(R.id.gui_text);
