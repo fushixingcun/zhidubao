@@ -63,7 +63,7 @@ public class DownLoadService extends Service {
             builder = new NotificationCompat.Builder(getApplicationContext());
             builder.setSmallIcon(R.mipmap.ic_launcher);
             builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
-            builder.setContentTitle("z");
+            builder.setContentTitle("下载中");
             builder.setProgress(100, 0, false);
             builder.setTicker("下载中...");
             manager.notify(1, builder.build());
@@ -179,6 +179,8 @@ public class DownLoadService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        downloadTask.cancel(true);
+        if (downloadTask != null && downloadTask.getStatus() == AsyncTask.Status.RUNNING) {
+            downloadTask.cancel(true);
+        }
     }
 }
