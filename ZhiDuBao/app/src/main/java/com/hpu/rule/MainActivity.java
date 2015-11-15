@@ -56,7 +56,9 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        getActionBar().setHomeButtonEnabled(false);
+        getActionBar().setDisplayHomeAsUpEnabled(false);
+        getActionBar().setDisplayShowHomeEnabled(false);
         setContentView(R.layout.activity_main);
         setOverflowShowingAlways();
         //得到viewpager的实例
