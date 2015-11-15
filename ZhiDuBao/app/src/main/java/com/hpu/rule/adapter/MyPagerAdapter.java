@@ -77,7 +77,7 @@ public class MyPagerAdapter extends PagerAdapter {
     private List<View> mList;
 
     public MyPagerAdapter(Context mContext, List<Integer> list) {
-        mList = new ArrayList<View>();
+        mList = new ArrayList<>();
         LinearLayout.LayoutParams mParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
@@ -88,6 +88,7 @@ public class MyPagerAdapter extends PagerAdapter {
             mList.add(mimageView);
         }
     }
+
     //判断当前的view是否为我们需要的view
     @Override
     public boolean isViewFromObject(View view, Object object) {

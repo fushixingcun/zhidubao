@@ -2,11 +2,14 @@ package com.hpu.rule;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+<<<<<<< HEAD
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.URLSpan;
 import android.view.MenuItem;
+=======
+>>>>>>> b40853b42600415bed7b378949e3767ba8f90a8b
 import android.widget.TextView;
 
 import com.hpu.rule.bease.BaseActivity;
@@ -19,14 +22,13 @@ public class HeadMaster extends BaseActivity {
     private ActionBar actionBar;
     private TextView zhouYouFeng;
     private TextView yangXiaoLin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.headmaster);
-        getActionBar().setHomeButtonEnabled(true);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setDisplayShowHomeEnabled(true);
 
+<<<<<<< HEAD
         zhouYouFeng=(TextView)findViewById(R.id.headmaster_text_content6);
         yangXiaoLin=(TextView)findViewById(R.id.headmaster_text_content7);
         //创建一个 SpannableString对象
@@ -48,5 +50,11 @@ public class HeadMaster extends BaseActivity {
             return  true;
         }
         return super.onOptionsItemSelected(item);
+=======
+
+        zhouYouFeng = (TextView) findViewById(R.id.headmaster_text_content6);
+>>>>>>> b40853b42600415bed7b378949e3767ba8f90a8b
     }
+
+
 }

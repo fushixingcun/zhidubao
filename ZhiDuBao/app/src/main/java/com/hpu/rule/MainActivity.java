@@ -50,14 +50,22 @@ public class MainActivity extends BaseActivity {
     };
     //初始化主页的ListView
     private List<Home> homeList = new ArrayList<>();
+<<<<<<< HEAD
     //小白点
     private ImageView[] dots;
     //小白点的id
     private int[] views={R.id.iv1,R.id.iv2,R.id.iv3,R.id.iv4,R.id.iv5};
+=======
+    private ImageView[] dots;
+    private int[] views = {R.id.iv1, R.id.iv2, R.id.iv3, R.id.iv4, R.id.iv5};
+
+>>>>>>> b40853b42600415bed7b378949e3767ba8f90a8b
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        getActionBar().setHomeButtonEnabled(false);
+        getActionBar().setDisplayHomeAsUpEnabled(false);
+        getActionBar().setDisplayShowHomeEnabled(false);
         setContentView(R.layout.activity_main);
         setOverflowShowingAlways();
         //得到viewpager的实例
@@ -81,12 +89,22 @@ public class MainActivity extends BaseActivity {
             }
 
             @Override
+<<<<<<< HEAD
             public void onPageSelected(int mposition) {
                 for (int i=0;i<5;i++){
                     dots[i].setImageResource(R.mipmap.white);
                 }
                 int positon = mposition % views.length;
                 dots[positon].setImageResource(R.mipmap.blue);
+=======
+            public void onPageSelected(int mPosition) {
+                for (int i = 0; i < 5; i++) {
+                    dots[i].setImageResource(R.mipmap.white);
+                }
+                int positon = mPosition % views.length;
+                dots[positon].setImageResource(R.mipmap.blue);
+
+>>>>>>> b40853b42600415bed7b378949e3767ba8f90a8b
             }
 
             @Override
@@ -129,11 +147,19 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
+
     //初始化小白点
+<<<<<<< HEAD
     private void initDots(){
         dots=new ImageView[views.length];
         for (int i=0;i<5;i++){
             dots[i]=(ImageView)findViewById(views[i]);
+=======
+    private void initDots() {
+        dots = new ImageView[views.length];
+        for (int i = 0; i < views.length; i++) {
+            dots[i] = (ImageView) findViewById(views[i]);
+>>>>>>> b40853b42600415bed7b378949e3767ba8f90a8b
         }
     }
 

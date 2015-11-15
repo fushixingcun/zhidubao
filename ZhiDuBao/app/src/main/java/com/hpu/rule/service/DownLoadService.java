@@ -61,12 +61,18 @@ public class DownLoadService extends Service {
         @Override
         protected void onPreExecute() {
             builder = new NotificationCompat.Builder(getApplicationContext());
+<<<<<<< HEAD
             builder.setSmallIcon(R.mipmap.xiaoyuan);
             builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.xiaoyuan));
             builder.setContentTitle("制度宝");
             builder.setContentText("河南理工大学制度宝");
+=======
+            builder.setSmallIcon(R.mipmap.ic_launcher);
+            builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
+            builder.setContentTitle("下载中");
+>>>>>>> b40853b42600415bed7b378949e3767ba8f90a8b
             builder.setProgress(100, 0, false);
-            builder.setTicker("开始下载!");
+            builder.setTicker("下载中...");
             manager.notify(1, builder.build());
         }
 
@@ -81,7 +87,11 @@ public class DownLoadService extends Service {
                 // 当前线程下载的总大小
                 int total = 0;
                 File positionFile = null;
+<<<<<<< HEAD
                 //判断sdk是否存在
+=======
+                //判断sd卡是否存在
+>>>>>>> b40853b42600415bed7b378949e3767ba8f90a8b
                 if (Environment.getExternalStorageState().equals(
                         Environment.MEDIA_MOUNTED)) {
                     positionFile = new File(Environment.getExternalStorageDirectory(),
@@ -105,7 +115,12 @@ public class DownLoadService extends Service {
                 int responseCode = conn.getResponseCode();
                 long length = conn.getContentLength();
                 // 创建一个大小和服务器文件一样大小的文件
+<<<<<<< HEAD
                 if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+=======
+                if (Environment.getExternalStorageState().equals(
+                        Environment.MEDIA_MOUNTED)) {
+>>>>>>> b40853b42600415bed7b378949e3767ba8f90a8b
                     file = new File(Environment.getExternalStorageDirectory(), getFileName(params[0]));
                 } else {
                     file = new File(Environment.getRootDirectory(), getFileName(params[0]));
@@ -140,8 +155,12 @@ public class DownLoadService extends Service {
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
-                // 只有所有的线程都下载完毕后 才可以删除记录文件。
                 File f = null;
+                // 只有所有的线程都下载完毕后 才可以删除记录文件。
+<<<<<<< HEAD
+                File f = null;
+=======
+>>>>>>> b40853b42600415bed7b378949e3767ba8f90a8b
                 if (Environment.getExternalStorageState().equals(
                         Environment.MEDIA_MOUNTED)) {
                     f = new File(Environment.getExternalStorageDirectory(), getFileName(params[0]) + ".txt");

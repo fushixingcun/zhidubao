@@ -31,6 +31,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
                 android:src="@mipmap/blue" />
+<<<<<<< HEAD
+=======
+
+>>>>>>> b40853b42600415bed7b378949e3767ba8f90a8b
             <ImageView
                 android:id="@+id/iv2"
                 android:layout_width="wrap_content"
