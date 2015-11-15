@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -49,7 +50,10 @@ public class MainActivity extends BaseActivity {
     };
     //初始化主页的ListView
     private List<Home> homeList = new ArrayList<>();
-
+    //小白点
+    private ImageView[] dots;
+    //小白点的id
+    private int[] views={R.id.iv1,R.id.iv2,R.id.iv3,R.id.iv4,R.id.iv5};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +63,7 @@ public class MainActivity extends BaseActivity {
         //得到viewpager的实例
         mPager = (ViewPager) findViewById(R.id.viewPager);
         //初始化小白点
-        // initDots();
+        initDots();
         //定义一个list，用于viewpager图片的显示
         List<Integer> list = new ArrayList<>();
         list.add(R.mipmap.ligong_nihao);
@@ -77,7 +81,12 @@ public class MainActivity extends BaseActivity {
             }
 
             @Override
-            public void onPageSelected(int mPosition) {
+            public void onPageSelected(int mposition) {
+                for (int i=0;i<5;i++){
+                    dots[i].setImageResource(R.mipmap.white);
+                }
+                int positon = mposition % views.length;
+                dots[positon].setImageResource(R.mipmap.blue);
             }
 
             @Override
@@ -112,7 +121,7 @@ public class MainActivity extends BaseActivity {
                         MainActivity.this.startActivity(itemIntent);
                         break;
                     case 3:
-                        itemIntent.setClass(getApplicationContext(), SchoolHistory.class);
+                        itemIntent.setClass(getApplicationContext(), MyFavorite.class);
                         MainActivity.this.startActivity(itemIntent);
                         break;
                 }
@@ -121,12 +130,12 @@ public class MainActivity extends BaseActivity {
         });
     }
     //初始化小白点
-//    private void initDots() {
-//        dots=new ImageView[views.size()];
-//        for (int i=0;i<views.size();i++){
-//            dots[i]=(ImageView)findViewById(ids[i]);
-//        }
-//    }
+    private void initDots(){
+        dots=new ImageView[views.length];
+        for (int i=0;i<5;i++){
+            dots[i]=(ImageView)findViewById(views[i]);
+        }
+    }
 
     //向listV添加数据
     private void initHome() {

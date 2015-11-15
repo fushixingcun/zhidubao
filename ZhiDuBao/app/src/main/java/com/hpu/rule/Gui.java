@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
@@ -21,9 +23,11 @@ public class Gui extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActionBar().hide();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.gui);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        final View view=View.inflate(this,R.layout.gui,null);
+        setContentView(view);
         guiText=(TextView)findViewById(R.id.gui_text);
         mAnimation= AnimationUtils.loadAnimation(this,R.anim.anim_text);
 

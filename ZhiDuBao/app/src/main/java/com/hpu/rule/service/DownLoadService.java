@@ -61,9 +61,10 @@ public class DownLoadService extends Service {
         @Override
         protected void onPreExecute() {
             builder = new NotificationCompat.Builder(getApplicationContext());
-            builder.setSmallIcon(R.mipmap.ic_launcher);
-            builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
-            builder.setContentTitle("美女图片");
+            builder.setSmallIcon(R.mipmap.xiaoyuan);
+            builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.xiaoyuan));
+            builder.setContentTitle("制度宝");
+            builder.setContentText("河南理工大学制度宝");
             builder.setProgress(100, 0, false);
             builder.setTicker("开始下载!");
             manager.notify(1, builder.build());
@@ -79,8 +80,15 @@ public class DownLoadService extends Service {
                 conn.setConnectTimeout(5000);
                 // 当前线程下载的总大小
                 int total = 0;
-                File positionFile = new File(Environment.getExternalStorageDirectory(),
-                        getFileName(params[0]) + ".txt");
+                File positionFile = null;
+                //判断sdk是否存在
+                if (Environment.getExternalStorageState().equals(
+                        Environment.MEDIA_MOUNTED)) {
+                    positionFile = new File(Environment.getExternalStorageDirectory(),
+                            getFileName(params[0]) + ".txt");
+                } else {
+                    positionFile = new File(Environment.getRootDirectory(), getFileName(params[0]) + ".txt");
+                }
                 // 接着从上一次的位置继续下载数据
                 long startIndex = 0;
                 if (positionFile.exists() && positionFile.length() > 0) {
@@ -97,7 +105,11 @@ public class DownLoadService extends Service {
                 int responseCode = conn.getResponseCode();
                 long length = conn.getContentLength();
                 // 创建一个大小和服务器文件一样大小的文件
-                file = new File(Environment.getExternalStorageDirectory(), getFileName(params[0]));
+                if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+                    file = new File(Environment.getExternalStorageDirectory(), getFileName(params[0]));
+                } else {
+                    file = new File(Environment.getRootDirectory(), getFileName(params[0]));
+                }
                 RandomAccessFile rcf = new RandomAccessFile(file, "rw");
                 rcf.setLength(length);
                 long endIndex = length - 1;
@@ -129,10 +141,15 @@ public class DownLoadService extends Service {
                 e.printStackTrace();
             } finally {
                 // 只有所有的线程都下载完毕后 才可以删除记录文件。
-                File f = new File(Environment.getExternalStorageDirectory(), getFileName(params[0]) + ".txt");
+                File f = null;
+                if (Environment.getExternalStorageState().equals(
+                        Environment.MEDIA_MOUNTED)) {
+                    f = new File(Environment.getExternalStorageDirectory(), getFileName(params[0]) + ".txt");
+                } else {
+                    f = new File(Environment.getRootDirectory(), getFileName(params[0]) + ".txt");
+                }
                 f.delete();
             }
-
             return null;
         }
 
@@ -166,7 +183,7 @@ public class DownLoadService extends Service {
                 builder.setProgress(0, 0, true);
                 builder.setContentText("下载失败...");
                 manager.notify(1, builder.build());
-                Toast.makeText(getApplicationContext(), "下载失败", 0).show();
+                Toast.makeText(getApplicationContext(), "下载失败", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -179,6 +196,8 @@ public class DownLoadService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        downloadTask.cancel(true);
+        if (downloadTask != null && downloadTask.getStatus() == AsyncTask.Status.RUNNING) {
+            downloadTask.cancel(true);
+        }
     }
 }
